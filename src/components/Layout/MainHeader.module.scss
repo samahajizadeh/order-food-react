@@ -1,0 +1,68 @@
+$active-color: #fd7d16;
+
+.mainHeader {
+  justify-items: baseline;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  right: 0;
+
+  .cart-wrap{
+    position: relative;
+    display: inline;
+    cursor: auto;
+  }
+  .navItem {
+    position: relative;
+    color: #fff !important;
+    transition: all 0.5s ease-in;
+    cursor: pointer;
+    .customBadge {
+      background: transparent !important;
+      color: $active-color;
+      border: 2px solid $active-color;
+      border-radius: 50%;
+      position: absolute;
+      right: -20px;
+      top: -17px;
+      z-index: -2;
+      border-bottom: transparent;
+    }
+    &:after {
+      content: "";
+      background: $active-color;
+      width: 0%;
+      right: 0;
+      left: auto;
+      bottom: -3px;
+      position: absolute;
+      height: 2px;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+    &:hover {
+      color: $active-color !important;
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+  .colorIcon {
+    color: $active-color;
+  }
+
+  .active {
+    .navItem {
+      color: $active-color !important;
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+}
+// .active {
+//   font-family: Verdana, Geneva, Tahoma, sans-serif;
+//   color: #c10944;
+//   font-size: 16px;
+//   background-color: #61dafb;
+// }

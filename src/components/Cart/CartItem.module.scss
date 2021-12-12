@@ -1,0 +1,39 @@
+.header-cart_content {
+    ol {
+      padding: 5px 25px;
+      max-height: 133px;
+      overflow-y: auto;
+
+     li {
+        border-bottom: 1px dashed #3e3e3e;
+        list-style: none;
+        padding: 5px;
+
+        &:last-child {
+          border: transparent;
+        }
+
+        .card_item {
+          display: flex;
+          .card_index {
+            align-self: center;
+            margin-left: 15px;
+          }
+          img {
+            width: 30%;
+            background: rebeccapurple;
+            margin-left: 20px;
+          }
+          .card_body {
+            .card_title {
+              font-size: 18px;
+            }
+            .card_desc {
+              color: #edd7c4;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
