@@ -1,0 +1,110 @@
+@import "../../assets/css/base/styles";
+
+%borderOrder {
+  content: "";
+  position: absolute;
+  border: 1px solid $color-active;
+  border-bottom: 0;
+  border-right: 0;
+}
+
+.order-item {
+  // background-color: rgba($color: $white, $alpha: 0.5);
+  background-color: $white;
+  border: 1px solid $color-gray;
+  @include prefix(border-radius, 5px);
+  height: 380px;
+  min-height: 320px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  position: relative;
+  &::before {
+    width: 50px;
+    height: 50px;
+    left: 3px;
+    top: 3px;
+    @extend %borderOrder;
+  }
+  &::after {
+    width: 20px;
+    height: 20px;
+    left: 6px;
+    top: 6px;
+    @extend %borderOrder;
+  }
+  &:hover {
+    background: $color-box;
+    @include prefix(
+      box-shadow,
+      0 10px 20px 0 rgba($color: $black, $alpha: 0.7)
+    );
+
+    border: 1px solid $color-box;
+    .order_action {
+      visibility: visible;
+      opacity: 1;
+      top: 50%;
+    }
+  }
+
+  .order_img {
+    margin: 20px 35px;
+    position: relative;
+    height: 160px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    img {
+      width: 100%;
+      height: auto;
+      @media (max-width: 768px) {
+        width: 200px;
+      }
+    }
+  }
+  .order_action {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    // -webkit-transform: translate(-50%, -50%);
+    // transform: translate(-50%, -50%);
+    @include transform(translate(-50%, -50%));
+
+    width: 100%;
+    visibility: visible;
+    opacity: 0;
+    // -webkit-transition: all 0.4s ease 0s;
+
+    @include prefix(transition, all 0.4s ease 0s);
+
+    .add-btn {
+      display: inline-block;
+      padding: 10px 25px;
+      border-radius: 30px;
+      text-transform: uppercase;
+      font-weight: 500;
+      background: $color-active;
+      color: $white;
+      border: transparent;
+      text-decoration: none;
+      .Icon {
+        margin-left: 5px;
+      }
+    }
+  }
+  .order_txt {
+    p {
+      white-space: nowrap;
+      padding: 5px 15px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  .order_price {
+    font-weight: bold;
+    color: $color-active;
+    .currencySymbol {
+      margin-right: 5px;
+    }
+  }
+}

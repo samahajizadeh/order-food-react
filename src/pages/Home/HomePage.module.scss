@@ -1,4 +1,4 @@
-$active-color: #fd7d16;
+@import "../../assets/css/base/styles";
 
 .mainPage {
   position: absolute;
@@ -9,7 +9,7 @@ $active-color: #fd7d16;
   z-index: 3;
 
   .bg-wrapper {
-    background: url("../../assets/images/2.jpg");
+    background: url("#{$images-root}/2.jpg");
     height: 100%;
     &:before {
       content: "";
@@ -18,7 +18,7 @@ $active-color: #fd7d16;
       left: 0;
       width: 100%;
       height: 100%;
-      background: #000;
+      background: $black;
       opacity: 0.4;
       z-index: 3;
     }
@@ -31,18 +31,28 @@ $active-color: #fd7d16;
       justify-content: center;
       align-items: center;
       h1 {
-        color: white;
+        color: $white;
         font-weight: bold;
         display: inline-block;
-        animation: zoom-in-zoom-out 3s infinite;
+
+        @include animation(zoomInzoomOut, 3s, ease, 0, infinite);
 
         font-size: 60px;
+        @media (max-width: 1200px) {
+          font-size: 40px;
+        }
+        @media (max-width: 768px) {
+          font-size: 30px;
+        }
+        @media (max-width: 425px) {
+          font-size: 20px;
+        }
       }
     }
   }
 }
 
-@keyframes zoom-in-zoom-out {
+@include keyframe(zoomInzoomOut) {
   0% {
     transform: scale(1, 1);
   }

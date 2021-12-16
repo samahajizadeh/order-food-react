@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LinkContainer } from "react-router-bootstrap";
 import { useLocation } from "react-router-dom";
 
@@ -6,7 +6,7 @@ import { Navbar, Nav, Container, Badge } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSignInAlt,
-  faCartPlus,
+  faBars,
   faShoppingBasket,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -15,26 +15,80 @@ import classes from "./MainHeader.module.scss";
 import Cart from "../Cart/Cart";
 
 const MainHeader = (props) => {
-  const [showCart, setShowCart] = useState(false);
+  const [cartIsShow, setCartIsShow] = useState(false);
+  const [bgHeader, setbgHeader] = useState(false);
   const location = useLocation();
   const { pathname } = location;
 
-  const cartHandler= () =>{
-    setShowCart ( pervState => !pervState)
-  }
+  const showCartHandler = () => {
+    setCartIsShow(true);
+  };
+  const hideCartHandler = () => {
+    setCartIsShow(false);
+  };
+
+  const listenScrollEvent = () => {
+    if (window.scrollY > 100) {
+      setbgHeader(true);
+    } else {
+      setbgHeader(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", listenScrollEvent);
+  }, []);
+
+  const defaultMainHeader = bgHeader
+    ? `${classes.mainHeader} ${classes.bgDarkHeader}`
+    : `${classes.mainHeader}`;
 
   return (
-    <Navbar collapseOnSelect expand="lg" className={classes.mainHeader}>
-      <Container>
+    <Navbar collapseOnSelect expand="lg" className={defaultMainHeader}>
+      <Container className={classes.mainContainer}>
         <Navbar.Brand href="#home">
           <Logo />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Nav className={`${classes.headerResponsive} "me-auto"`}>
+          <Nav.Link onClick={showCartHandler}>
+            <FontAwesomeIcon
+              icon={faShoppingBasket}
+              className={classes.colorIcon}
+            />
+            <div className={classes["cart-wrap"]}>
+              <span className={classes.navItem}>
+                <Badge className={classes.customBadge}>2</Badge>
+                سبد خرید
+              </span>
+              {/* {showCart && <Cart />} */}
+            </div>
+          </Nav.Link>
+          <LinkContainer to="/login">
+            <Nav.Link>
+              <FontAwesomeIcon
+                icon={faSignInAlt}
+                className={classes.colorIcon}
+              />
+              <span className={classes.navItem}> ورود به سیستم</span>
+            </Nav.Link>
+          </LinkContainer>
+        </Nav>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav">
+          <FontAwesomeIcon icon={faBars} className={classes.colorIcon} />
+        </Navbar.Toggle>
+
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav style={{ marginRight: "35px" }} activeKey={pathname}>
+          <Nav className={classes.rightSideNav}
+            style={{ marginRight: "35px" }}
+            activeKey={pathname}
+          >
             <LinkContainer to="/home" activeClassName={classes.active}>
               <Nav.Link eventKey="home">
                 <span className={classes.navItem}>صفحه اصلی</span>
+              </Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/order" activeClassName={classes.active}>
+              <Nav.Link eventKey="order">
+                <span className={classes.navItem}>سفارش آنلاین</span>
               </Nav.Link>
             </LinkContainer>
             <LinkContainer to="/about" activeClassName={classes.active}>
@@ -48,8 +102,8 @@ const MainHeader = (props) => {
               </Nav.Link>
             </LinkContainer>
           </Nav>
-          <Nav className="me-auto">
-            <Nav.Link onClick={cartHandler}>
+          <Nav className={`${classes.leftSideNav} me-auto`}>
+            <Nav.Link onClick={showCartHandler}>
               <FontAwesomeIcon
                 icon={faShoppingBasket}
                 className={classes.colorIcon}
@@ -59,8 +113,10 @@ const MainHeader = (props) => {
                   <Badge className={classes.customBadge}>2</Badge>
                   سبد خرید
                 </span>
-                {showCart && <Cart />}
+
+                {/* {cartIsShow && <Cart onClose={hideCartHandler} />} */}
               </div>
+              
             </Nav.Link>
             <LinkContainer to="/login">
               <Nav.Link>
@@ -73,6 +129,7 @@ const MainHeader = (props) => {
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>
+        {cartIsShow && <Cart onClose={hideCartHandler} />}
       </Container>
     </Navbar>
   );

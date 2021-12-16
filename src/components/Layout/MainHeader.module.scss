@@ -1,4 +1,4 @@
-$active-color: #fd7d16;
+@import "../../assets/css/base/styles";
 
 .mainHeader {
   justify-items: baseline;
@@ -7,20 +7,31 @@ $active-color: #fd7d16;
   left: 0;
   right: 0;
 
-  .cart-wrap{
+  .mainContainer{
+    position: relative;
+  }
+  &.bgDarkHeader {
+    background-color: rgba($color: $bgColor-header, $alpha: 0.7);
+    transition: all 0.2s ease-in;
+  }
+
+  .headerResponsive {
+    display: none;
+  }
+  .cart-wrap {
     position: relative;
     display: inline;
     cursor: auto;
   }
   .navItem {
     position: relative;
-    color: #fff !important;
+    color: $white !important;
     transition: all 0.5s ease-in;
     cursor: pointer;
     .customBadge {
       background: transparent !important;
-      color: $active-color;
-      border: 2px solid $active-color;
+      color: $color-active;
+      border: 2px solid $color-active;
       border-radius: 50%;
       position: absolute;
       right: -20px;
@@ -30,7 +41,7 @@ $active-color: #fd7d16;
     }
     &:after {
       content: "";
-      background: $active-color;
+      background: $color-active;
       width: 0%;
       right: 0;
       left: auto;
@@ -41,28 +52,51 @@ $active-color: #fd7d16;
       transition: 0.4s;
     }
     &:hover {
-      color: $active-color !important;
+      color: $color-active !important;
       &:after {
         width: 100%;
       }
     }
   }
   .colorIcon {
-    color: $active-color;
+    color: $color-active;
   }
 
   .active {
     .navItem {
-      color: $active-color !important;
+      color: $color-active !important;
       &:after {
         width: 100%;
       }
     }
   }
 }
-// .active {
-//   font-family: Verdana, Geneva, Tahoma, sans-serif;
-//   color: #c10944;
-//   font-size: 16px;
-//   background-color: #61dafb;
-// }
+
+@media (max-width: 992px) {
+  .mainHeader {
+    background-color: $bgColor-header;
+    .headerResponsive {
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      flex: auto;
+      a {
+        margin-right: 25px !important;
+      }
+    }
+  }
+  .rightSideNav {
+    background: $bgColor-header;
+    padding: 20px;
+  }
+  .leftSideNav {
+    display: none !important;
+  }
+}
+@media (max-width: 325px) {
+  .mainHeader {
+    .mainContainer {
+      justify-content: center !important;
+    }
+  }
+}

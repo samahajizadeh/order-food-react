@@ -1,3 +1,4 @@
+@import "../../assets/css/base/styles";
 .cart-wrapper {
   position: absolute;
   top: 0;
@@ -5,7 +6,7 @@
   right: 0;
   bottom: 0;
   z-index: 3;
-  background: url("../../assets/images/17.jpg");
+  background: url("#{$images-root}/17.jpg");
   height: 100%;
   min-height: 600px;
   background-size: cover;
@@ -17,7 +18,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: #000;
+    background: $black;
     opacity: 0.4;
     z-index: 3;
   }
@@ -31,9 +32,17 @@
 
     .col {
       position: relative;
-      background-color: rgba($color: #fff, $alpha: 0.5);
+      background-color: rgba($color: $white, $alpha: 0.5);
       border-radius: 7px;
       padding: 20px;
+      overflow-x: auto;
+
+      table{
+        @media (max-width:560px){
+          width: 600px;
+        }
+      }
+
 
       .actions {
         span {
@@ -46,11 +55,16 @@
         }
       }
       .total-price {
+        td:first-child{
+          font-size: 22px;
+        }
         .price {
           padding-right: 15px;
-          color: #0dcaf0;
+          color: $color-info;
         }
       }
     }
   }
 }
+
+

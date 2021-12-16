@@ -7,7 +7,7 @@ const NotFoundPage = () => {
     <section className={classes.notFound}>
       <div className={classes["bg-wrapper"]}>
         <div className={classes.content}>
-            <img src={errorImage}/>
+            <img src={errorImage} alt="خطا"/>
             <h1>صفحه مورد نظر یافت نشد</h1>
 
         </div>

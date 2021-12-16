@@ -1,5 +1,8 @@
 .logo {
   img {
     width: 115px;
+    @media (max-width: 425px) {
+      width: 85px;
+    }
   }
 }

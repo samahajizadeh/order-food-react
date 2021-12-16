@@ -1,3 +1,4 @@
+@import "../../assets/css/base/styles";
 @-webkit-keyframes spin {
     0% {
       transform: rotate(0deg); /* Firefox 16+, IE 10+, Opera */
@@ -24,14 +25,14 @@
     }
   }
   
-  #preloader {
+  .preloader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1000;
-    background: #000000;
+    background: $color-body;
     backface-visibility: hidden;
     direction: ltr;
     & > div {
@@ -59,7 +60,7 @@
         bottom: 5px;
         border-radius: 50%;
         border: 3px solid transparent;
-        border-top-color: $VidAd_color;
+        border-top-color: $color-purple;
         -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
         animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
       }

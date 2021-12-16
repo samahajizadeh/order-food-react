@@ -6,7 +6,7 @@ import classes from "./Logo.module.scss";
 const Logo = () => {
   return (
     <Aux className={classes.logo}>
-      <img src={logo} alt="رستوران شاهان" />
+      <img src={logo} alt="فست فود شاهان" />
     </Aux>
   );
 };

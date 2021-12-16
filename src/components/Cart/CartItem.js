@@ -4,11 +4,11 @@ import classes from './CartItem.module.scss';
 const CartItem=()=>{
     return(
         <div className={classes["header-cart_content"]}>
-        <ol>
+        <ol className={classes.scroll}>
           <li>
             <div className={classes.card_item}>
               <div className={classes.card_index}>1</div>
-              <img src="./" />
+              <img src="" />
               <div className={classes.card_body}>
                 <h2 className={classes.card_title}>پیتزای سبزیجات</h2>
                 <div className={classes.card_desc}>
@@ -20,7 +20,7 @@ const CartItem=()=>{
           <li>
             <div className={classes.card_item}>
               <div className={classes.card_index}>2</div>
-              <img src="./" />
+              <img src="" />
               <div className={classes.card_body}>
                 <h2 className={classes.card_title}>پیتزای سبزیجات</h2>
                 <div className={classes.card_desc}>
@@ -32,7 +32,7 @@ const CartItem=()=>{
           <li>
             <div className={classes.card_item}>
               <div className={classes.card_index}>3</div>
-              <img src="./" />
+              <img src="" />
               <div className={classes.card_body}>
                 <h2 className={classes.card_title}>پیتزای سبزیجات</h2>
                 <div className={classes.card_desc}>
