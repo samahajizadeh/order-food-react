@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Alert } from "react-bootstrap";
 import OrderList from "../../components/Order/OrderList";
 import classes from "./OrderPage.module.scss";
 
@@ -21,9 +21,9 @@ const OrdersPage = () => {
     sendRequest();
   }, [sendRequest]);
 
-  debugger
   if (
     status === "completed" &&
+    !error &&
     (!loadedOrders || loadedOrders.length === 0)
   ) {
     <NotFoundData />;
@@ -39,7 +39,10 @@ const OrdersPage = () => {
         <h2> صفحه سفارشات</h2>
       </div>
       <Container>
-        <OrderList order={loadedOrders} />
+        {status === "completed" && !error && <OrderList order={loadedOrders} />}
+        {status === "completed" && error && (
+          <Alert variant="danger" className={classes['order-error']}>{error}</Alert>
+        )}
       </Container>
     </section>
   );

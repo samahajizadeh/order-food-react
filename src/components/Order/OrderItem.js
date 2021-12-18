@@ -21,7 +21,7 @@ const OrderItem = (props) => {
           </div>
         </div>
         <div className={classes["order_txt"]}>
-          <h3>{props.title}</h3>
+          <h2>{props.title}</h2>
           <p>{props.desc}</p>
           <h3 className={classes["order_price"]}>
             {props.price}

@@ -66,14 +66,11 @@
     position: absolute;
     top: 30%;
     left: 50%;
-    // -webkit-transform: translate(-50%, -50%);
-    // transform: translate(-50%, -50%);
     @include transform(translate(-50%, -50%));
 
     width: 100%;
     visibility: visible;
     opacity: 0;
-    // -webkit-transition: all 0.4s ease 0s;
 
     @include prefix(transition, all 0.4s ease 0s);
 
@@ -93,6 +90,9 @@
     }
   }
   .order_txt {
+    h2{
+      height: 76px;
+    }
     p {
       white-space: nowrap;
       padding: 5px 15px;
