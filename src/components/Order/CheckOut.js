@@ -15,7 +15,7 @@ import useHttp from "../../hooks/useHttp";
 import { sendOrder } from "../../lib/api";
 import { NumberWithCommas } from "../UI/NumberFormat";
 import { clearItem } from "../../store/order";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 function CheckOut(props) {
   const { items, totalAmount } = useSelector((state) => state.order);

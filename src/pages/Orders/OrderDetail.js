@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Card, Alert } from "react-bootstrap";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router-dom";
 
 import useHttp from "../../hooks/useHttp";
 import { getOrderDetail } from "../../lib/api";

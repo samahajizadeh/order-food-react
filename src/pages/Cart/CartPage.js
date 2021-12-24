@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import classes from "./CartPage.module.scss";
 import { NumberWithCommas } from "../../components/UI/NumberFormat";
 import { addItem, removeItem } from "../../store/order";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
   const { items, totalAmount } = useSelector((state) => state.order);

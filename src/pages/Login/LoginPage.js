@@ -6,7 +6,7 @@ import ImageLogo from "../../assets/images/logo.png";
 import useInput from "../../hooks/useInput";
 
 import { auth } from "../../firebase";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { signInWithEmailAndPassword } from "firebase/auth";
 

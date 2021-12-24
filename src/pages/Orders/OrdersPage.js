@@ -8,7 +8,7 @@ import { getAllOrder } from "../../lib/api";
 
 import NotFoundData from "../../components/UI/NotFoundData";
 import Preloader from "../../components/UI/Preloader";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const OrdersPage = () => {
   const navigate = useNavigate();
