@@ -5,6 +5,7 @@ import classes from "./AboutPage.module.scss";
 import aboutImg from "../../assets/images/4.jpg";
 
 const AboutPage = () => {
+ 
   return (
     <section className={classes["about-wrapper"]}>
       <Row className={classes["about-content"]}>

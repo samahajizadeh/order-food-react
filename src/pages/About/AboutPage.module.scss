@@ -34,7 +34,7 @@
 
     .col {
       position: relative;
-      background-color: rgba($color: $white, $alpha: 0.5);
+      background-color: rgba($color: $white, $alpha: 0.9);
       @include prefix(border-radius, 7px);
       padding: 20px;
       display: flex;

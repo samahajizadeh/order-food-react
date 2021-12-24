@@ -47,6 +47,7 @@
         border: 2px dashed $color-purple;
         border-bottom: 0;
         border-right: 0;
+        z-index: 0;
       }
       &::after {
         content: "";
@@ -58,27 +59,47 @@
         border: 2px dashed $color-purple;
         border-top: 0;
         border-left: 0;
+        z-index: 0;
       }
 
-      input:focus {
-        border-color: $color-purple !important;
-        @include prefix(box-shadow, 0 0 0 0.25rem $color-shadow)
+      form {
+        position: relative;
+        z-index: 2;
+
+        input {
+          &:focus {
+            border-color: $color-purple;
+            @include prefix(box-shadow, 0 0 0 0.25rem $color-shadow);
+          }
+          &.invalid {
+            border-color: $color-invalid;
+          }
+        }
       }
+
       label {
         text-align: right;
         width: 100%;
         padding-right: 5px;
       }
-      // small {
-      //   display: inline-block;
-      //   text-align: right;
-      //   width: 100%;
-      //   padding-right: 5px;
-      // }
-      .invalidInput{
+      .visiblePassword {
+        position: absolute;
+        top: 12px;
+        left: 9px;
+        color: $color-info;
+        z-index: 4;
+      }
+     
+      .invalid-text {
+        font-size: 13px;
+        color: $color-invalid;
         text-align: right !important;
         padding-right: 5px;
-    }
+      }
+      .invalidInput {
+        text-align: right !important;
+        padding-right: 5px;
+      }
       button {
         width: 100%;
         color: $white;
@@ -86,5 +107,4 @@
       }
     }
   }
-}
-
+};

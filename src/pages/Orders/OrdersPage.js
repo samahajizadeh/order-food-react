@@ -8,8 +8,10 @@ import { getAllOrder } from "../../lib/api";
 
 import NotFoundData from "../../components/UI/NotFoundData";
 import Preloader from "../../components/UI/Preloader";
+import { useNavigate } from "react-router";
 
 const OrdersPage = () => {
+  const navigate = useNavigate();
   const {
     sendRequest,
     status,
@@ -20,6 +22,13 @@ const OrdersPage = () => {
   useEffect(() => {
     sendRequest();
   }, [sendRequest]);
+
+  useEffect(() => {
+    const authToken = localStorage.getItem("Auth Token");
+    if (!authToken) {
+      navigate("/login");
+    }
+  }, [navigate]);
 
   if (
     status === "completed" &&
@@ -41,7 +50,9 @@ const OrdersPage = () => {
       <Container>
         {status === "completed" && !error && <OrderList order={loadedOrders} />}
         {status === "completed" && error && (
-          <Alert variant="danger" className={classes['order-error']}>{error}</Alert>
+          <Alert variant="danger" className={classes["order-error"]}>
+            {error}
+          </Alert>
         )}
       </Container>
     </section>

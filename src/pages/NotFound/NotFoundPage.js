@@ -3,6 +3,7 @@ import classes from './NotFound.module.scss';
 import errorImage from '../../assets/images/error404.png'
 
 const NotFoundPage = () => {
+ 
   return (
     <section className={classes.notFound}>
       <div className={classes["bg-wrapper"]}>

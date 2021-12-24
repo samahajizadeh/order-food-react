@@ -12,7 +12,8 @@
 
 .header-cart {
   width: 320px;
-  height: 330px;
+  height: auto;
+  max-height: 330px;
   padding: 15px;
   position: absolute;
   left: 15%;

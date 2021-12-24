@@ -18,7 +18,7 @@ const ContactPage = () => {
         <Col md={10} lg={8}>
           <div className={classes.col}>
           <div className={classes.contactImage}>
-            <img src={contactImg} />
+            <img src={contactImg} alt="" />
           </div>
 
           <div className={classes.contactText}>

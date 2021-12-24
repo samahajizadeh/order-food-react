@@ -11,6 +11,7 @@
     position: relative;
   }
   &.bgDarkHeader {
+    position: fixed;
     background-color: rgba($color: $bgColor-header, $alpha: 0.7);
     transition: all 0.2s ease-in;
   }

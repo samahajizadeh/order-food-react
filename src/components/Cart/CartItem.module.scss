@@ -31,13 +31,17 @@
 
       .card_item {
         display: flex;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
         .card_index {
           align-self: center;
           margin-left: 15px;
         }
         img {
           width: 30%;
-          background: rebeccapurple;
+          height: 60px;
+          background: $white;
           margin-left: 20px;
         }
         .card_body {

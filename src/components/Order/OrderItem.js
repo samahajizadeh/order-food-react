@@ -6,6 +6,7 @@ import classes from "./OrderItem.module.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { NumberWithCommas } from "../UI/NumberFormat";
 
 const OrderItem = (props) => {
   return (
@@ -14,17 +15,16 @@ const OrderItem = (props) => {
         <div className={classes["order_img"]}>
           <img src={props.image} alt={props.title} />
           <div className={classes["order_action"]}>
-            <Link to={"/order/45"} className={classes['add-btn']} >
+            <Link to={`/order/${props.id}`} className={classes['add-btn']} >
               <FontAwesomeIcon icon={faShoppingCart} className={classes.Icon} />
-              افزودن به سبد خرید
-            </Link>
+سفارش غذا            </Link>
           </div>
         </div>
         <div className={classes["order_txt"]}>
           <h2>{props.title}</h2>
           <p>{props.desc}</p>
           <h3 className={classes["order_price"]}>
-            {props.price}
+            {NumberWithCommas(props.price)}
             <span className={classes.currencySymbol}>تومان</span>
           </h3>
         </div>
