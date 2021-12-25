@@ -27,7 +27,7 @@ class App extends Component {
           <Suspense fallback={<Preloader />}>
             <Routes>
               {/* <Route path="/" element={<LoginPage />} /> */}
-              <Route path="/order-food-react" element={<Navigate replace to="/"/>}/>
+              <Route path="/order-food-react/" element={<Navigate replace to="/home"/>}/>
               <Route path="/" element={<Navigate replace to="/home"/>}/>
               <Route path="/home" element={<HomePage />} />
               <Route path="/order" element={<OrderPage />} />
